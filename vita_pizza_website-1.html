@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vita Pizza — بيتزا طازجة، مذاق رائع، وطلبات سهلة.">
+  <title>Vita Pizza | فيتا بيتزا</title>
+  <style>
+    :root{--red:#c9282d;--dark:#211b19;--cream:#fff8ef;--gold:#f5b544;--muted:#716863}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--cream);color:var(--dark);line-height:1.7}
+    a{text-decoration:none;color:inherit}
+    .topbar{background:var(--dark);color:#fff;text-align:center;padding:8px 12px;font-size:13px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 7%;background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 3px 18px #211b1910}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:24px;color:var(--red)}
+    .logo{display:grid;place-items:center;background:var(--red);color:white;border-radius:50%;width:45px;height:45px;font-size:24px}
+    nav{display:flex;gap:24px;font-size:14px;font-weight:bold}
+    nav a:hover{color:var(--red)}
+    .btn{display:inline-block;border:0;border-radius:999px;background:var(--red);color:white;padding:13px 24px;font-weight:bold;cursor:pointer;transition:.2s}
+    .btn:hover{background:#a91e23;transform:translateY(-2px)}
+    .btn-light{background:#fff;color:var(--red)}
+    .hero{min-height:540px;padding:70px 7%;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;background:radial-gradient(circle at 75% 45%,#ffe1b2 0,transparent 35%),linear-gradient(115deg,#fff8ef,#fff0df)}
+    .eyebrow{display:inline-block;background:#ffe4d8;color:var(--red);padding:6px 14px;border-radius:30px;font-size:13px;font-weight:bold}
+    h1{font-size:clamp(36px,5vw,62px);line-height:1.2;margin:18px 0}
+    h1 span{color:var(--red)}
+    .hero p{max-width:520px;color:var(--muted);font-size:17px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .pizza-art{width:min(100%,430px);aspect-ratio:1;border-radius:50%;margin:auto;display:grid;place-items:center;background:repeating-conic-gradient(#d99543 0deg 8deg,#f6c96f 8deg 16deg);box-shadow:0 22px 55px #7e3c2428;position:relative;border:14px solid #d7a05a}
+    .pizza-art:before{content:"";position:absolute;inset:18px;border-radius:50%;background:radial-gradient(circle at 25% 28%,#d9362f 0 4%,transparent 4.5%),radial-gradient(circle at 65% 22%,#a81f23 0 4%,transparent 4.5%),radial-gradient(circle at 70% 60%,#d9362f 0 5%,transparent 5.5%),radial-gradient(circle at 34% 68%,#b51e26 0 5%,transparent 5.5%),radial-gradient(circle at 48% 44%,#a81f23 0 4%,transparent 4.5%),radial-gradient(circle at 50% 20%,#438644 0 3%,transparent 3.5%),radial-gradient(circle at 24% 52%,#438644 0 3%,transparent 3.5%),radial-gradient(circle at 52% 78%,#438644 0 3%,transparent 3.5%),radial-gradient(circle at 78% 38%,#438644 0 3%,transparent 3.5%),radial-gradient(circle at 50% 50%,#f6d477 0 58%,#c9252b 59% 67%,#e9b85f 68% 100%)}
+    .pizza-badge{position:absolute;bottom:9%;right:-2%;background:#fff;padding:14px 18px;border-radius:18px;box-shadow:0 10px 30px #0001;font-weight:bold}.pizza-badge strong{color:var(--red);display:block}
+    section{padding:72px 7%}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 34px}
+    .section-head h2{font-size:34px;margin:8px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-20px;position:relative}
+    .feature{background:#fff;padding:24px;border-radius:18px;text-align:center;box-shadow:0 8px 30px #31190d08}
+    .feature .icon{font-size:30px}
+    .feature h3{margin:8px 0 4px}.feature p{margin:0;color:var(--muted);font-size:14px}
+    .menu{background:#fff}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .dish{border:1px solid #f0e6dd;border-radius:20px;overflow:hidden;background:#fff;transition:.2s}
+    .dish:hover{transform:translateY(-5px);box-shadow:0 14px 35px #34180d12}
+    .dish-img{height:175px;display:grid;place-items:center;font-size:86px;background:linear-gradient(135deg,#fff0dc,#ffdfb2)}
+    .dish-body{padding:18px}
+    .dish-title{display:flex;justify-content:space-between;gap:10px;align-items:start}
+    .dish-title h3{margin:0;font-size:18px}
+    .price{color:var(--red);font-weight:900;white-space:nowrap}
+    .dish p{color:var(--muted);font-size:14px;margin:10px 0 16px}
+    .order{background:var(--red);color:#fff;text-align:center}
+    .order .section-head p{color:#ffe0db}
+    .order .section-head h2{font-size:36px}
+    .order .btn{background:#fff;color:var(--red);margin-top:12px}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .contact-card{padding:24px;background:#fff;border-radius:18px;text-align:center}
+    .contact-card .icon{font-size:28px}
+    .contact-card p{color:var(--muted);margin-bottom:0}
+    footer{background:var(--dark);color:#fff;text-align:center;padding:25px 7%;font-size:13px}
+    footer span{color:#ffb7a9}
+    @media(max-width:800px){header{padding:14px 5%;flex-wrap:wrap}nav{order:3;width:100%;justify-content:center;gap:17px;flex-wrap:wrap}.hero{grid-template-columns:1fr;text-align:center;padding:52px 6%}.hero p{margin-inline:auto}.hero-actions{justify-content:center}.pizza-art{width:min(78vw,340px);grid-row:1}.features{grid-template-columns:1fr;margin:20px 5% 0}.menu-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:1fr}section{padding:55px 6%}}
+    @media(max-width:480px){.brand{font-size:21px}.menu-grid{grid-template-columns:1fr}.dish-img{height:155px}.section-head h2{font-size:29px}.topbar{font-size:12px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">🍕 نكهة لا تُنسى — حضّروا شهيّتكم مع Vita Pizza!</div>
+  <header>
+    <a class="brand" href="#home"><span class="logo">🍕</span><span>Vita Pizza</span></a>
+    <nav aria-label="القائمة الرئيسية">
+      <a href="#home">الرئيسية</a><a href="#menu">قائمة الطعام</a><a href="#about">لماذا نحن؟</a><a href="#contact">اتصل بنا</a>
+    </nav>
+    <a class="btn" href="#order">اطلب الآن</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <span class="eyebrow">طازجة • لذيذة • محضّرة بحب</span>
+        <h1>قطعة سعادة<br>في كل <span>بيتزا!</span></h1>
+        <p>اكتشفوا مذاق Vita Pizza؛ عجينة شهية، مكونات مختارة، وجبنة تذوب في كل قضمة. وجبتكم المفضلة تبدأ من هنا.</p>
+        <div class="hero-actions"><a class="btn" href="#menu">اكتشف القائمة</a><a class="btn" style="background:#29211e" href="#contact">معلومات المطعم</a></div>
+      </div>
+      <div class="pizza-art" role="img" aria-label="رسم توضيحي لبيتزا"></div>
+      <div class="pizza-badge">🍅 مكونات مختارة<strong>مذاق يستحق التجربة</strong></div>
+    </section>
+
+    <div class="features" id="about">
+      <article class="feature"><div class="icon">🔥</div><h3>تحضير طازج</h3><p>نحضّر طلبك بعناية ليصل إليك بأفضل مذاق.</p></article>
+      <article class="feature"><div class="icon">🧀</div><h3>مكونات لذيذة</h3><p>نكهات متوازنة ومكونات مختارة لكل وصفة.</p></article>
+      <article class="feature"><div class="icon">❤️</div><h3>خدمة بمحبة</h3><p>رضاكم هو الأهم، ونسعى لتجربة جميلة في كل مرة.</p></article>
+    </div>
+
+    <section class="menu" id="menu">
+      <div class="section-head"><span class="eyebrow">اختياراتنا</span><h2>قائمة Vita Pizza</h2><p>تعرّف على بعض اختياراتنا المميزة. الأسعار أدناه أمثلة قابلة للتعديل حسب قائمتك الحقيقية.</p></div>
+      <div class="menu-grid">
+        <article class="dish"><div class="dish-img">🍕</div><div class="dish-body"><div class="dish-title"><h3>بيتزا مارغريتا</h3><span class="price">600 دج</span></div><p>صلصة الطماطم، جبنة الموزاريلا، ولمسة من الأعشاب.</p><a class="btn" href="#order">اطلبها</a></div></article>
+        <article class="dish"><div class="dish-img">🍕</div><div class="dish-body"><div class="dish-title"><h3>بيتزا 4 أجبان</h3><span class="price">900 دج</span></div><p>مزيج غني من الأجبان لعشاق الطعم الكريمي.</p><a class="btn" href="#order">اطلبها</a></div></article>
+        <article class="dish"><div class="dish-img">🍕</div><div class="dish-body"><div class="dish-title"><h3>بيتزا خاصة Vita</h3><span class="price">1000 دج</span></div><p>خلطة مميزة من المكونات والنكهات التي تحبونها.</p><a class="btn" href="#order">اطلبها</a></div></article>
+        <article class="dish"><div class="dish-img">🥪</div><div class="dish-body"><div class="dish-title"><h3>بانيني</h3><span class="price">500 دج</span></div><p>خبز محمّص وحشوة لذيذة لوجبة سريعة.</p><a class="btn" href="#order">اطلبه</a></div></article>
+        <article class="dish"><div class="dish-img">🍟</div><div class="dish-body"><div class="dish-title"><h3>بطاطا مقلية</h3><span class="price">250 دج</span></div><p>مقرمشة ولذيذة، مثالية مع وجبتك المفضلة.</p><a class="btn" href="#order">اطلبها</a></div></article>
+        <article class="dish"><div class="dish-img">🥤</div><div class="dish-body"><div class="dish-title"><h3>مشروب بارد</h3><span class="price">150 دج</span></div><p>أكمل وجبتك بمشروب منعش.</p><a class="btn" href="#order">اطلبه</a></div></article>
+      </div>
+    </section>
+
+    <section class="order" id="order">
+      <div class="section-head"><h2>هل أنت مستعد لتجربة لذيذة؟</h2><p>تواصل معنا لتأكيد القائمة والأسعار وطلبك. أضف رقم واتساب المطعم قبل نشر الموقع.</p><a class="btn" href="#contact">طريقة الطلب</a></div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head"><span class="eyebrow">نحن هنا لخدمتكم</span><h2>تواصل مع Vita Pizza</h2><p>استبدل المعلومات التالية ببيانات مطعمك الصحيحة.</p></div>
+      <div class="contact-grid">
+        <div class="contact-card"><div class="icon">📍</div><h3>العنوان</h3><p>أضف عنوان المطعم والمدينة هنا</p></div>
+        <div class="contact-card"><div class="icon">📞</div><h3>رقم الهاتف</h3><p>أضف رقم الهاتف هنا</p></div>
+        <div class="contact-card"><div class="icon">🕒</div><h3>أوقات العمل</h3><p>أضف أوقات العمل هنا</p></div>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> Vita Pizza — جميع الحقوق محفوظة <span>♥</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
